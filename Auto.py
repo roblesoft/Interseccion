@@ -11,15 +11,34 @@ class Auto(pygame.sprite.Sprite):
 		self.estado = estado 
 		self.rect.centerx = x
 		self.rect.centery = y
-	def run(self):
+		self.movimiento = self.movi()
+
+	def movi(self):
 		if self.horientacion == 1:
-			self.rect.centery -= 10
+			def direccion():
+				self.rect.centery -= 10
+				if self.rect.centery == -100:
+					self.rect.centery = 750
 		elif self.horientacion == 2:
-			self.rect.centerx -= 10
+			def direccion():
+				self.rect.centerx -= 10
+				if self.rect.centerx == -100:
+					self.rect.centerx = 750
 		elif self.horientacion == 3:
-			self.rect.centerx += 10
+			def direccion():
+				self.rect.centerx += 10
+				if self.rect.centerx == 750:
+					self.rect.centerx = -10
 		elif self.horientacion == 0:
-			self.rect.centery +=10
+			def direccion():
+				self.rect.centery +=10
+				if self.rect.centery == 750:
+					self.rect.centery = -10
+		return direccion
+		
+	def run(self):
+		self.movimiento()
+
 	def paint(self, window):
 		window.blit(self.auto, self.rect)
 
