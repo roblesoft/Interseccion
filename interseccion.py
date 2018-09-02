@@ -11,6 +11,14 @@ auto = Auto(0, 270, window,  horientacion=3)
 auto2 = Auto(650, 420, window,  horientacion=2)
 auto3 = Auto(280, 0, window,  horientacion=0)
 auto4 = Auto(430, 0, window,  horientacion=1)
+semaforo = Semaforo(200, 280, window) 
+semaforo2 = Semaforo(200, 410, window) 
+semaforo3 = Semaforo(495, 410, window) 
+semaforo4 = Semaforo(495, 280, window) 
+semaforo5 = Semaforo(420, 205, window, horientacion=0) 
+semaforo6 = Semaforo(280, 205, window, horientacion=0) 
+semaforo7 = Semaforo(420, 495, window, horientacion=0) 
+semaforo8 = Semaforo(280, 495, window, horientacion=0) 
 
 def simulation():
 	while True:
@@ -18,6 +26,14 @@ def simulation():
 		window.blit(pygame.image.load('sprites/interseccion.png'), (0, 0))
 		auto3.run()
 		auto4.run()
+		semaforo.run()
+		semaforo2.run()
+		semaforo3.run()
+		semaforo4.run()
+		semaforo5.run()
+		semaforo6.run()
+		semaforo7.run()
+		semaforo8.run()
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				pygame.quit()
